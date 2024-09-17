@@ -1,0 +1,41 @@
+{
+  "pw": {
+    "bazel_presubmit": {
+      "remote_cache": true,
+      "upload_local_results": true,
+      "programs": {
+        "default": [
+          [
+            "build",
+            "--config=presubmit"
+          ],
+          [
+            "build",
+            "--config=rp2040",
+            "//..."
+          ],
+          [
+            "test",
+            "//..."
+          ],
+          [
+            "test",
+            "--config=asan",
+            "//..."
+          ],
+          [
+            "test",
+            "--config=tsan",
+            "//...",
+            "--runs_per_test=10"
+          ],
+          [
+            "test",
+            "--config=ubsan",
+            "//..."
+          ]
+        ]
+      }
+    }
+  }
+}

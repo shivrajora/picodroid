@@ -1,0 +1,7 @@
+# Remove the `*` from this file and add specific owners to this file and to
+# subdirectories where appropriate to enforce OWNERS approval in this
+# repository.
+#
+# Syntax for OWNERS files can be found at:
+# https://pigweed-review.googlesource.com/plugins/code-owners/Documentation/backend-find-owners.html#syntax
+*

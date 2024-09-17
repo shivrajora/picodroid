@@ -1,0 +1,82 @@
+# Copyright 2024 The Pigweed Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not
+# use this file except in compliance with the License. You may obtain a copy of
+# the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations under
+# the License.
+module(
+    name = "quickstart",
+)
+
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "freertos", version = "10.5.1.bcr.2")
+bazel_dep(name = "nanopb", repo_name = "com_github_nanopb_nanopb")
+bazel_dep(name = "pico-sdk", version = "2.0.0")
+bazel_dep(name = "pigweed")
+bazel_dep(name = "platforms", version = "0.0.10")
+bazel_dep(name = "pw_toolchain")
+bazel_dep(name = "rules_cc")
+bazel_dep(name = "rules_platform", version = "0.1.0")
+bazel_dep(name = "rules_python", version = "0.34.0")
+
+bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
+
+# Module overrides
+# ================
+# TODO: https://pwbug.dev/349880767 - Point this back to the upstream repo once
+# this PR is merged.
+archive_override(
+    module_name = "hedron_compile_commands",
+    strip_prefix = "bazel-compile-commands-extractor-163521345aa6366fd1ed801b989b668b5c806f69",
+    urls = ["https://github.com/chadnorvell/bazel-compile-commands-extractor/archive/163521345aa6366fd1ed801b989b668b5c806f69.tar.gz"],
+)
+
+# TODO: https://pwbug.dev/354274498 - nanopb is not yet in the BCR.
+git_override(
+    module_name = "nanopb",
+    commit = "7c6c581bc6f7406a4f01c3b9853251ff0a68458b",
+    remote = "https://github.com/nanopb/nanopb.git",
+)
+
+git_override(
+    module_name = "pigweed",
+    # ROLL: Warning: this entry is automatically updated.
+    # ROLL: Last updated 2024-09-17.
+    # ROLL: By https://cr-buildbucket.appspot.com/build/8736592871262140305.
+    commit = "bbe5cd6062a86012474bdc317036cb87504c0df1",
+    remote = "https://pigweed.googlesource.com/pigweed/pigweed",
+)
+
+git_override(
+    module_name = "pw_toolchain",
+    # ROLL: Warning: this entry is automatically updated.
+    # ROLL: Last updated 2024-09-17.
+    # ROLL: By https://cr-buildbucket.appspot.com/build/8736592871262140305.
+    commit = "bbe5cd6062a86012474bdc317036cb87504c0df1",
+    remote = "https://pigweed.googlesource.com/pigweed/pigweed",
+    strip_prefix = "pw_toolchain_bazel",
+)
+
+# TODO: https://pwbug.dev/258836641 - Pre-release version needed for the Pico
+# SDK. Remove this once rules_cc 0.10.0 is released and the Pico SDK
+# MODULE.bazel declares its dependency on it.
+archive_override(
+    module_name = "rules_cc",
+    integrity = "sha256-NddP6xi6LzsIHT8bMSVJ2NtoURbN+l3xpjvmIgB6aSg=",
+    strip_prefix = "rules_cc-1acf5213b6170f1f0133e273cb85ede0e732048f",
+    urls = [
+        "https://github.com/bazelbuild/rules_cc/archive/1acf5213b6170f1f0133e273cb85ede0e732048f.zip",
+    ],
+)
+
+http_archive = use_repo_rule(
+    "@bazel_tools//tools/build_defs/repo:http.bzl",
+    "http_archive",
+)
