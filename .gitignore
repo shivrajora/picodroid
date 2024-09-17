@@ -1,0 +1,64 @@
+# Build
+out/
+.presubmit/
+compile_commands.json
+user.bazelrc
+/bazel-*
+
+# Ignore until https://github.com/bazelbuild/bazel/issues/20369 is fixed.
+MODULE.bazel.lock
+
+# Environment
+.environment/
+environment/
+build_overrides/pigweed_environment.gni
+
+# Editors
+.pw_ide/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/pw_user_*.json
+.vscode/*.bak.json
+.idea/
+.project
+.cproject
+.clangd
+.clangd/
+*.swp
+*.swo
+.#*
+
+# Python
+python*-env/
+.python*-env/
+venv/
+*.pyc
+*.egg/
+*.eggs/
+*.egg-info/
+.cache/
+.mypy_cache/
+__pycache__/
+
+# Mac
+.DS_Store
+
+# GDB
+.gdb_history
+
+# Git
+*.orig
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
+
+# Other
+logfile.txt
+pw_console-*logs.txt
+.pw_console.user.yaml
+factory-logs-*.txt

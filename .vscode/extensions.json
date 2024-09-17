@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "pigweed.pigweed"
+  ],
+  "unwantedRecommendations": [
+    "ms-vscode.cpptools",
+    "ms-vscode.cpptools-extension-pack"
+  ]
+}
