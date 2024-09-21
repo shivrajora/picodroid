@@ -1,4 +1,4 @@
-// Copyright 2024 The Pigweed Authors
+// Copyright 2024 Shiv Rajora
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not
 // use this file except in compliance with the License. You may obtain a copy of
@@ -13,26 +13,17 @@
 // the License.
 #define PW_LOG_MODULE_NAME "MAIN"
 
-#include "modules/blinky/service.h"
+#include "pw_async2/system_time_provider.h"
 #include "pw_log/log.h"
 #include "pw_system/system.h"
 #include "system/system.h"
-#include "pw_async2/system_time_provider.h"
 
 int main() {
-  demo::system::Init();
-  auto& rpc_server = pw::System().rpc_server();
-  auto& monochrome_led = demo::system::MonochromeLed();
+  pd::system::Init();
 
-  static demo::BlinkyService blinky_service;
-  blinky_service.Init(
-      pw::System().dispatcher(),
-      pw::async2::GetSystemTimeProvider(),
-      pw::System().allocator(),
-      monochrome_led);
-  rpc_server.RegisterService(blinky_service);
+  // auto& monochrome_led = demo::system::MonochromeLed();
 
-  PW_LOG_INFO("Started blinky app; waiting for RPCs...");
-  demo::system::Start();
+  PW_LOG_INFO("### Initializing Picodroid ###");
+  pd::system::Start();
   PW_UNREACHABLE;
 }

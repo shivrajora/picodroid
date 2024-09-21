@@ -65,7 +65,7 @@ VirtualInput io_sw_y(State::kInactive);
 
 }  // namespace
 
-namespace demo::system {
+namespace pd::system {
 
 void Init() {}
 
@@ -96,4 +96,4 @@ void Start() {
   PW_UNREACHABLE;
 }
 
-}  // namespace demo::system
+}  // namespace pd::system

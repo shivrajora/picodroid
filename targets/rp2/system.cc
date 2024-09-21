@@ -31,7 +31,7 @@
 
 using pw::digital_io::Rp2040DigitalIn;
 
-namespace demo::system {
+namespace pd::system {
 
 void Init() {
   // PICO_SDK inits.
@@ -53,4 +53,4 @@ void Start() {
   PW_UNREACHABLE;
 }
 
-}  // namespace demo::system
+}  // namespace pd::system

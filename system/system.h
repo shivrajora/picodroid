@@ -18,7 +18,7 @@
 // The functions in this file return specific implementations of singleton types
 // provided by the system.
 
-namespace demo::system {
+namespace pd::system {
 
 /// Initializes the system. This must be called before anything else in `main`.
 void Init();
@@ -28,4 +28,4 @@ void Init();
 
 pw::digital_io::DigitalInOut& MonochromeLed();
 
-}  // namespace demo::system
+}  // namespace pd::system

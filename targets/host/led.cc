@@ -15,7 +15,7 @@
 #include "pw_digital_io/digital_io_mock.h"
 #include "system/system.h"
 
-namespace demo::system {
+namespace pd::system {
 
 pw::digital_io::DigitalInOut& MonochromeLed() {
   static constexpr size_t kCapacity = 256;
@@ -23,4 +23,4 @@ pw::digital_io::DigitalInOut& MonochromeLed() {
   return digital_io_mock;
 }
 
-}  // namespace demo::system
+}  // namespace pd::system

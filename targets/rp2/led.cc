@@ -16,7 +16,7 @@
 #include "pw_digital_io_rp2040/digital_io.h"
 #include "system/system.h"
 
-namespace demo::system {
+namespace pd::system {
 
 static constexpr pw::digital_io::Rp2040Config kDefaultLedConfig = {
     .pin = PICO_DEFAULT_LED_PIN,
@@ -28,4 +28,4 @@ pw::digital_io::DigitalInOut& MonochromeLed() {
   return led_sio;
 }
 
-}  // namespace demo::system
+}  // namespace pd::system
