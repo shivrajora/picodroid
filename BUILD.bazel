@@ -31,11 +31,11 @@ refresh_compile_commands(
     target_compatible_with = incompatible_with_mcu(),
     target_groups = {
         "host_simulator": [
-            "//apps/blinky:simulator_blinky",
+            "//src/framework/main:simulator_main",
             "//modules/blinky:blinky_test",
         ],
         "rp2040": [
-            "//apps/blinky:rp2040_blinky.elf",
+            "//src/framework/main:rp2040_main.elf",
             [
                 "//modules/blinky:blinky_test",
                 "--config=rp2040",
