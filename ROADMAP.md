@@ -1,11 +1,11 @@
-## Version 0.1 ##
+# Version 0.1 #
 
-# Goals: #
+## Goals: ##
 
 1. Boot into a "launcher"
 2. Support both host simulator and rp2040 MCU targets
 
-# Things to do: #
+## Things to do: ##
 
 1. Initialize system thread and app main thread
 2. Add a graphics library (maybe lvgl?).
