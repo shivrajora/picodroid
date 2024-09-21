@@ -82,11 +82,11 @@ common:ubsan --@pigweed//pw_toolchain/host_clang:ubsan
 # bazel build --config=presubmit
 build:presubmit -- \
   //... \
-  //apps/blinky:blinky \
-  //apps/blinky:rp2040_blinky.elf \
-  //apps/blinky:rp2040_console \
-  //apps/blinky:simulator_blinky \
-  //apps/blinky:simulator_console \
+  //src/framework/main:main \
+  //src/framework/main:rp2040_main.elf \
+  //src/framework/main:rp2040_console \
+  //src/framework/main:simulator_main \
+  //src/framework/main:simulator_console \
   //tools:console \
 
 # UX settings
